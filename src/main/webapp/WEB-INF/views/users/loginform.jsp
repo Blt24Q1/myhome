@@ -33,9 +33,9 @@ String errorMsg = (String)request.getAttribute("errorMsg");
 	<form method="POST" action="<%= request.getContextPath() %>/users">
 		<input type="hidden" name="a" value="login" />
 		<label for="email">이메일</label>
-		<input type="text" name="email" /><br>
+		<input type="text" name="email" id="email" placeholder="이메일을 입력하세요" /><br>
 		<label for="password">Password</label>
-		<input type="password" name="password" /><br/>
+		<input type="password" name="password" id="password" placeholder="비밀번호를 입력하세요" /><br/>
 		<input type="submit" value="로그인" />
 	</form>
 			</div>
