@@ -19,6 +19,7 @@ public class UserServlet extends BaseServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//  a=joinform -> 가입폼 페이지로 FORWARD
 		//	a=joinsuccess -> 가입 성공 페이지로 FORWARD
+		//	a=logout -> 세션 지우고 -> / Redirect
 		String actionName = req.getParameter("a");
 		
 		if ("joinform".equals(actionName)) {
@@ -41,6 +42,13 @@ public class UserServlet extends BaseServlet {
 			RequestDispatcher rd = 
 					req.getRequestDispatcher("/WEB-INF/views/users/loginform.jsp");
 			rd.forward(req, resp);
+		} else if ("logout".equals(actionName)) {
+			//	로그아웃
+			//	세션 무효화
+			HttpSession session = req.getSession();
+			session.removeAttribute("authUser");	//	개별 속성 삭제
+			session.invalidate();	//	세션 무효화
+			resp.sendRedirect(req.getContextPath());	//	홈페이지로 리다이렉트
 		} else {
 			//	홈페이지로 리다이렉트
 			resp.sendRedirect(req.getContextPath());
