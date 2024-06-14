@@ -11,8 +11,8 @@ UserVo authUser = (UserVo)session.getAttribute("authUser");
       if (authUser != null) {	//	로그인 함 
       %>
       <ul>
-      	<li><%= authUser.getName() %>님 환영합니다</li>
       	<li><a href="<%= request.getContextPath() %>/users?a=logout">로그아웃</a>
+      	<li><%= authUser.getName() %>님 환영합니다</li>
       <!-- 로그인 한 사용자 -->
       <!-- 웰컴 메시지, 로그아웃 링크 -->
       </ul>
@@ -20,8 +20,8 @@ UserVo authUser = (UserVo)session.getAttribute("authUser");
       <ul>
       <!-- 로그인 안한 사용자 -->
       <!-- 가입링크, 로그인 폼 링크 -->
-      	<li><a href="<%= request.getContextPath() %>/users?a=joinform">회원가입</a></li>
       	<li><a href="<%= request.getContextPath() %>/users?a=loginform">로그인</a></li>
+      	<li><a href="<%= request.getContextPath() %>/users?a=joinform">회원가입</a></li>
       </ul>
       <% } %>
     </div> <!-- /header -->
