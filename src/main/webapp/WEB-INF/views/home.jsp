@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,13 +15,18 @@
   <div id="container">
   
     <!-- header include -->
-    <jsp:include page="/WEB-INF/views/includes/header.jsp">
+    <c:import url="/WEB-INF/views/includes/header.jsp">
+    	<c:param name="param1" value="value1" />
+    	<c:param name="param2" value="value2" />
+    </c:import>
+    <%--jsp:include page="/WEB-INF/views/includes/header.jsp">
     	<jsp:param name="param1" value="value1" />
     	<jsp:param name="param2" value="value2" />
-    </jsp:include>
+    </jsp:include --%>
 
 	<!-- navigation include -->
-	<jsp:include page="/WEB-INF/views/includes/navigation.jsp" />
+	<c:import url="/WEB-INF/views/includes/navigation.jsp" />
+	<%--jsp:include page="/WEB-INF/views/includes/navigation.jsp" /--%>
     
 	<div id="wrapper">
       <div id="content">
